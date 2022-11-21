@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="medium" (click)="cancel()">Cancel</ion-button>
+    </ion-buttons>
+    <ion-title>Welcome</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="confirm()">Confirm</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+    <ion-label>Pick Start time</ion-label>
+    <ion-datetime #sday  (ionStyle)="updateSDate(sday.value)"></ion-datetime>
+    <ion-label>Pick End time</ion-label>
+    <ion-datetime #eday presentation="date-time" (ionStyle)="updateEDate(eday.value)"></ion-datetime>
+</ion-content>

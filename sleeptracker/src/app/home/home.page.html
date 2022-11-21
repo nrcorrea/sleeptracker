@@ -12,10 +12,20 @@
       <ion-title size="large">Sleep Tracker</ion-title>
     </ion-toolbar>
 
-
   </ion-header>
+<div class="center">
+  <ion-button *ngIf="hasstarted == false" (click)="logClick()" shape="circle" size="large" fill="outline" color="success">
+    Start
+  </ion-button>
+  <ion-button *ngIf="hasstarted == true" (click)="logClick()" shape="circle" size="large" fill="solid" color="tertiary">
+    End
+  </ion-button>
+</div>
 
-  <ion-tabs>
+  <ion-button color="secondary" expand="block" (click)="openModal()">Add Logging</ion-button>
+
+
+  <!-- <ion-tabs>
     <ion-tab-bar slot="bottom">
       <ion-tab-button routerLink="/day" tab="Day">
         <ion-icon name="sunny-outline"></ion-icon>
@@ -32,11 +42,6 @@
         <ion-label>History</ion-label>
       </ion-tab-button>
     </ion-tab-bar>
-  </ion-tabs>
+  </ion-tabs> -->
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer"
-        href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
 </ion-content>

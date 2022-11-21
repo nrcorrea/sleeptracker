@@ -29,3 +29,12 @@
 #home {
   color: lightblue;
 }
+
+ion-button[shape=circle] {
+  --border-radius: 90%;
+  width: 120px;
+  height: 120px;
+}
+.center{
+  text-align:center;
+}

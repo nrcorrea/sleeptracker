@@ -3,6 +3,8 @@ import { SleepService } from '../services/sleep.service';
 import { SleepData } from '../data/sleep-data';
 import { OvernightSleepData } from '../data/overnight-sleep-data';
 import { StanfordSleepinessData } from '../data/stanford-sleepiness-data';
+import { ModalController } from '@ionic/angular';
+import { AddmodalComponent } from '../addmodal/addmodal.component';
 
 @Component({
   selector: 'app-home',
@@ -11,7 +13,12 @@ import { StanfordSleepinessData } from '../data/stanford-sleepiness-data';
 })
 export class HomePage {
 
-	constructor(public sleepService:SleepService) {
+	hasstarted = false;
+	sleepStart:Date;
+	sleepEnd:Date;
+	sleeps:OvernightSleepData[];
+
+	constructor(private modalCtrl: ModalController,public sleepService:SleepService) {
 
 	}
 
@@ -23,5 +30,50 @@ export class HomePage {
 	get allSleepData() {
 		return SleepService.AllSleepData;
 	}
+	logClick(){
+		if(this.hasstarted == false){
+			this.hasstarted = true;
+			this.sleepStart = new Date();
+		}
+		else{
+			this.hasstarted = false;
+			this.sleepEnd = new Date();
+			let sleep = new OvernightSleepData(this.sleepStart,this.sleepEnd);
+			this.sleepService.logOvernightData(sleep);
+			console.log(this.sleepEnd);
+			console.log(sleep.summaryString());
+			console.log(this.allSleepData);
+		}
+	}
+	async openModal() {
+		const modal = await this.modalCtrl.create({
+		  component: AddmodalComponent,
+		});
+		modal.present();
+	
+		modal.onDidDismiss().then((data)=>{
+			if(data.data.role == "confirm")
+			{
+				this.sleepStart = new Date(data.data.sdate);
+				this.sleepEnd = new Date(data.data.edate);
+				let sleep = new OvernightSleepData(this.sleepStart,this.sleepEnd);
+				this.sleepService.logOvernightData(sleep);
+				console.log(sleep.summaryString());
+				console.log(this.allSleepData);
+				// console.log(data.data.sdate);
+				// console.log(data.data.edate);
+			}
+			else
+			{
+				console.log("bruh");
+			}
+		})
+		// const { data, role } = await modal.onWillDismiss();
+	
+		// if (role === 'confirm') {
+		//   console.log(data.data.sdate);
+		//   console.log(data.data.edate);
+		// }
+	  }
 
 }
