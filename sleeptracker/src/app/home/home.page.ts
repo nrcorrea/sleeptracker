@@ -40,8 +40,6 @@ export class HomePage {
 			this.sleepEnd = new Date();
 			let sleep = new OvernightSleepData(this.sleepStart,this.sleepEnd);
 			this.sleepService.logOvernightData(sleep);
-			console.log(this.sleepEnd);
-			console.log(sleep.summaryString());
 			console.log(this.allSleepData);
 		}
 	}
