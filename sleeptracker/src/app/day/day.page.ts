@@ -3,6 +3,7 @@ import { SleepService } from '../services/sleep.service';
 import { SleepData } from '../data/sleep-data';
 import { OvernightSleepData } from '../data/overnight-sleep-data';
 import { StanfordSleepinessData } from '../data/stanford-sleepiness-data';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-day',
@@ -10,8 +11,11 @@ import { StanfordSleepinessData } from '../data/stanford-sleepiness-data';
   styleUrls: ['day.page.scss'],
 })
 export class DayPage {
+	position:number = 1;
+	date:Date;
+	log:StanfordSleepinessData;
 
-	constructor(public sleepService:SleepService) {
+	constructor(public sleepService:SleepService, private logging: ModalController) {
 
 	}
 
@@ -24,4 +28,10 @@ export class DayPage {
 		return SleepService.AllSleepData;
 	}
 
+	async logSleepiness() {
+		this.date = new Date();
+		this.log = new StanfordSleepinessData(this.position, this.date);
+		await this.logging.dismiss(this.log);
+	}
+	
 }
