@@ -11,6 +11,8 @@ import { StanfordSleepinessData } from '../data/stanford-sleepiness-data';
 })
 export class HistoryPage {
 
+	public sleepiness:boolean = false;
+	public overnight:boolean = true;
 	constructor(public sleepService:SleepService) {
 
 	}
@@ -19,9 +21,24 @@ export class HistoryPage {
 		console.log(this.allSleepData);
 	}
 
+	showNight(){
+		this.sleepiness = false;
+		this.overnight = true;
+	}
+	showDay(){
+		this.sleepiness = true;
+		this.overnight = false;
+	}
+
 	/* Ionic doesn't allow bindings to static variables, so this getter can be used instead. */
 	get allSleepData() {
 		return SleepService.AllSleepData;
+	}
+	get allOvernightData(){
+		return SleepService.AllOvernightData;
+	}
+	get allSleepinessData(){
+		return SleepService.AllSleepinessData;
 	}
 
 }
