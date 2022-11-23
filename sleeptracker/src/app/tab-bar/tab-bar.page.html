@@ -1,17 +1,17 @@
   <ion-tabs>
     <ion-tab-bar slot="bottom">
       <ion-tab-button tab="day">
-        <ion-icon name="sunny-outline"></ion-icon>
+        <ion-icon name="sunny-outline" (click)="change1()" id="sunny"></ion-icon>
         <ion-label>Day</ion-label>
       </ion-tab-button>
 
       <ion-tab-button tab="home">
-        <ion-icon name="moon"></ion-icon>
+        <ion-icon name="moon-outline" (click)="change2()" id="moon"></ion-icon>
         <ion-label>Night</ion-label>
       </ion-tab-button>
 
       <ion-tab-button  tab="history">
-        <ion-icon name="file-tray-full-outline"></ion-icon>
+        <ion-icon name="file-tray-full-outline" (click)="change3()" id="file"></ion-icon>
         <ion-label>History</ion-label>
       </ion-tab-button>
     </ion-tab-bar>
