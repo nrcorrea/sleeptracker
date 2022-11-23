@@ -29,6 +29,9 @@ export class DayPage {
 
 	logSleepiness() {
 		let date = new Date();
+		console.log(date);
+		console.log(this.position);
+		console.log(this.note);
 		let log = new StanfordSleepinessData(this.position, date,this.note);
 		this.sleepService.logSleepinessData(log);
 		console.log(this.allSleepData);

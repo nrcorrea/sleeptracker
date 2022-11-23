@@ -11,14 +11,15 @@ import { StanfordSleepinessData } from '../data/stanford-sleepiness-data';
 })
 export class HistoryPage {
 
-	public sleepiness:boolean = false;
-	public overnight:boolean = true;
+	public sleepiness:boolean = true;
+	public overnight:boolean = false;
 	constructor(public sleepService:SleepService) {
 
 	}
 
 	ngOnInit() {
 		console.log(this.allSleepData);
+
 	}
 
 	showNight(){
