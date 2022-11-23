@@ -12,7 +12,12 @@ import { ModalController } from '@ionic/angular';
 })
 export class DayPage {
 	position:number = 1;
+<<<<<<< HEAD
 	note:string;
+=======
+	date:Date;
+	log:StanfordSleepinessData;
+>>>>>>> 8b80906520e9d8528e7800526655c1eafc1c3ba1
 
 	constructor(public sleepService:SleepService, private logging: ModalController) {
 
@@ -27,6 +32,7 @@ export class DayPage {
 		return SleepService.AllSleepData;
 	}
 
+<<<<<<< HEAD
 	logSleepiness() {
 		let date = new Date();
 		console.log(date);
@@ -38,3 +44,12 @@ export class DayPage {
 	}
 	
 }
+=======
+	async logSleepiness() {
+		this.date = new Date();
+		this.log = new StanfordSleepinessData(this.position, this.date);
+		await this.logging.dismiss(this.log);
+	}
+	
+}
+>>>>>>> 8b80906520e9d8528e7800526655c1eafc1c3ba1
