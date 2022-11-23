@@ -11,13 +11,8 @@ import { StanfordSleepinessData } from '../data/stanford-sleepiness-data';
 })
 export class HistoryPage {
 
-<<<<<<< HEAD
 	public sleepiness:boolean = true;
 	public overnight:boolean = false;
-=======
-	public sleepiness:boolean = false;
-	public overnight:boolean = true;
->>>>>>> 8b80906520e9d8528e7800526655c1eafc1c3ba1
 	constructor(public sleepService:SleepService) {
 
 	}
@@ -25,15 +20,6 @@ export class HistoryPage {
 	ngOnInit() {
 		console.log(this.allSleepData);
 
-	}
-
-	showNight(){
-		this.sleepiness = false;
-		this.overnight = true;
-	}
-	showDay(){
-		this.sleepiness = true;
-		this.overnight = false;
 	}
 
 	showNight(){

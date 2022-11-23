@@ -17,26 +17,15 @@
   <ion-grid class="grid">
     <ion-row>
       <ion-col class= "col" col-6 size = "6">
-<<<<<<< HEAD
         <ion-button expand="block" [(ngModel)]="sleepiness" (click)="showDay()">Day</ion-button>
       </ion-col>
       <ion-col class= "col" col-6 size = "6">
           <ion-button expand="block" [(ngModel)]="overnight" (click)="showNight()">Night</ion-button>
-=======
-        <ion-button expand="block" [(ngModel)]="sleepiness">Day</ion-button>
-      </ion-col>
-      <ion-col class= "col" col-6 size = "6">
-          <ion-button expand="block" [(ngModel)]="overnight">Night</ion-button>
->>>>>>> 8b80906520e9d8528e7800526655c1eafc1c3ba1
       </ion-col>
     </ion-row>
   </ion-grid>
 
-<<<<<<< HEAD
   <ion-content class="night" *ngIf="overnight">
-=======
-  <ion-content class="night" *ngIf="overnight" (click)="showNight()">
->>>>>>> 8b80906520e9d8528e7800526655c1eafc1c3ba1
     <ion-list>
       <ion-card *ngFor="let sleep of allOvernightData; let index" color = "secondary">
         <ion-card-header>
@@ -55,11 +44,7 @@
       </ion-infinite-scroll>
   </ion-content>
 
-<<<<<<< HEAD
   <ion-content class="sleepiness" *ngIf="sleepiness" >
-=======
-  <ion-content class="sleepiness" *ngIf="sleepiness" (click)="showDay()">
->>>>>>> 8b80906520e9d8528e7800526655c1eafc1c3ba1
     <ion-list>
       <ion-card *ngFor="let sleepiness of allSleepinessData; let index" color = "warning">
         <ion-card-header>
